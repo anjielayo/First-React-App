@@ -13,11 +13,11 @@ class Counter extends Component {
     };
     handleIncrement=()=>{
         this.setState({count:this.state.count + 1})
-    }
+    };
     styles={
         fontSize:15,
         fontWeight:"bold"
-    };
+    }
     renderTags=()=>{
         return(
             <nav className="nav nav-tabs">
@@ -29,7 +29,7 @@ class Counter extends Component {
 
             </nav>
             );
-    };
+    }
     formatBadge=()=>{
         let classes="badge m-2 badge-";
         classes+=this.state.count===0?"warning":"danger";
@@ -44,7 +44,7 @@ class Counter extends Component {
         console.log(tab);
        }
        return navlink;
-    } 
+    };
 
     render() {
         console.log('props',this.props.value)

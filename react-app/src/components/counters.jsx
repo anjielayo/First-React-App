@@ -13,10 +13,10 @@ class Counters extends Component {
 
     handleDelete=(counterId)=>{
         console.log("This "+counterId+" has been clicked.")
-        this.state.counter.filter(count => count.id!==counterId)
-        this.setState({counter:counter})
+        let mycount=this.state.counter.filter(count => count.id!==counterId)
+        this.setState({counter:mycount})
 
-    };
+    }
 
     render() { 
         return ( 
