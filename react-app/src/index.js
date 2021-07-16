@@ -5,7 +5,7 @@ import './index.css';
 //import App from './App';
 //import NewCounter from './components/newcounter';
 import reportWebVitals from './reportWebVitals';
-import Counters from './components/counters';
+import Counter from './components/counter';
 //import Navbar from './components/navbar';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,7 +19,7 @@ import 'font-awesome/js/all.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Counters/> {/*Javascript XML*/}
+    <Counter/> {/*Javascript XML*/}
   </React.StrictMode>,
   document.getElementById('root') /*loads everything inside a div with an id of root which is contained in index.html*/
 );

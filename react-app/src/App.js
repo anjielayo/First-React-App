@@ -1,11 +1,12 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 
 
 function App() {
    return (
     //contains Javascript XML
-    <div className="App">
+/*     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,7 +21,13 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </div> */
+    <React.Fragment>
+      <h1>Welcome to my website...</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aut unde nesciunt alias quaerat laborum molestiae. Maiores exercitationem inventore, voluptatem reiciendis doloribus voluptate quod debitis quas est, placeat error velit.</p>
+    </React.Fragment>
+    
+    
   ); 
  // return <h1>Hello World!</h1>
 }
