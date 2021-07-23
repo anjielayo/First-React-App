@@ -4,11 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faCut } from '@fortawesome/free-solid-svg-icons';
 
 class Counter extends Component {
-    
+    tabs=["Home","About","Contact","FAQ"];
     state = {
         count: this.props.value,
-        activeTabId: 0,
-        tabs:["Home","About","Contact","FAQ"]
+        activeTabId: 0
 
     };
 
@@ -37,6 +36,12 @@ class Counter extends Component {
         }
     }
 
+    onClick = (id) => {
+        this.setState({
+          ...this.state.activeTabId,
+          activeTabId: id
+        });
+      };
     formatCount=()=>{
         const count=this.state.count;
         return count===0?"Zero":count;
@@ -51,8 +56,8 @@ class Counter extends Component {
     renderTags=()=>{
         return(
             <nav className="nav nav-tabs mt-2">
-                {this.state.tabs.map((tab)=>(
-                <a href="#" key={tab} className={this.activeNav(tab)}>
+                {this.tabs.map((tab,id)=>(
+                <a href="#" key={tab} onClick={() => this.onClick(id)} className={this.activeNav(id)}>
                     {tab}
                 </a>
                 ))}
@@ -67,11 +72,11 @@ class Counter extends Component {
     };
 
 /*MAKES HOME TAB ACTIVE*/
-    activeNav=(navlink)=>{
+    activeNav=(id)=>{
     /*const tabs=this.state.tabs[0];
     return tabs.selected===true?"nav-item nav-link active":"nav-item nav-link"; */
     
-    if (navlink==="Home") {
+    if (id === this.state.activeTabId) {
         return "nav-item nav-link active";
       } 
       else {
