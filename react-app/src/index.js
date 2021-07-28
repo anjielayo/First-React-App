@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
 //import HelloWorld from './components/helloworld'; 
 //import App from './App';
 //import NewCounter from './components/newcounter';
 import reportWebVitals from './reportWebVitals';
-//import Counter from './components/counter';
+//import Counters from './components/counters';
 //import Navbar from './components/navbar';
 import Fidma from './components/fidma/fidma';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'font-awesome/css/font-awesome.css';
 import 'font-awesome/js/all.js';
