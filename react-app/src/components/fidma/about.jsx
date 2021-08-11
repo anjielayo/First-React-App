@@ -1,6 +1,7 @@
-/* eslint-disable array-callback-return */
+/* eslint-disable no-unused-vars */
 import React,{Component} from 'react';
 import axios from 'axios';
+import {Link,NavLink} from 'react-router-dom';
 //import './style2.css';
 
 class About extends Component{
@@ -10,18 +11,20 @@ class About extends Component{
 
     componentDidMount(){
         axios.get('https://jsonplaceholder.typicode.com/posts').then(res=>{
-        console.log(res)
+        //console.log(res)
         this.setState({posts:res.data.slice(0,10)})})
     };
 
     render()  {
         const {posts}=this.state;
-        const postList=this.state.posts.length?(
+        const postList=posts.length?(
             posts.map(post=>{
                 return(
                 <div className="card m-3" key={post.id}>
                     <div className="card-body">
-                        <h3 className="card-title">{post.title}</h3>
+                        <Link to={"/"+post.id}>
+                            <h3 className="card-title text-center">{post.title}</h3>
+                        </Link>
                         <p className="card-text">{post.body}</p>
                     </div>
                 </div>);
@@ -32,9 +35,14 @@ class About extends Component{
 
     return(
         <div className="container-fluid">
-            <h4 className="text-center">About</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, nobis placeat mollitia minus exercitationem dolorum, excepturi laborum rerum quis ullam fugiat possimus incidunt eius aperiam eum iste facilis, impedit recusandae?</p>
-            {postList}
+            <div className="row">
+                <div className="offset-2 col-md-8">
+                    <h4 className="text-center">About</h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, nobis placeat mollitia minus exercitationem dolorum, excepturi laborum rerum quis ullam fugiat possimus incidunt eius aperiam eum iste facilis, impedit recusandae?</p>
+                    {postList}
+                </div>
+            </div>
+            
         </div>
 
     //FLIP CARD

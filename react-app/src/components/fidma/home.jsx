@@ -1,9 +1,46 @@
-import React from 'react';
+/* import React from 'react';
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+
 
 const Home=()=>{
     return(
-        <div>
-            <div id="carouselExampleFade" className="carousel slide carousel-fade" data-ride="carousel">
+        <div className="container-fluid">
+            <div className="row">
+            <div className="offset-2 col-md-8">
+            <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="saurabhnemade"
+            options={{height: 400}}
+            />
+            <TwitterTweetEmbed
+            tweetId={'933354946111705097'}
+            />
+            <TwitterShareButton
+            url={'https://facebook.com/saurabhnemade'}
+            options={{ text: '#reactjs is awesome', via: 'saurabhnemade' }}
+            />
+            <TwitterMentionButton
+            screenName={'saurabhnemade'}
+            />
+            <TwitterHashtagButton
+                tag={'cybersecurity'}
+            />
+            <TwitterFollowButton
+                screenName={'saurabhnemade'}
+            />
+            <TwitterMomentShare
+                momentId={'650667182356082688'}
+            />
+            <TwitterDMButton
+                id={1364031673}
+            />
+            <TwitterVideoEmbed
+                id={'560070183650213889'}
+            />
+            <TwitterOnAirButton
+                id={'560070183650213889'}
+            />
+            {/* <div id="carouselExampleFade" className="carousel slide carousel-fade" data-ride="carousel">
                     <ul class="carousel-indicators">
                         <li data-target="#carouselExampleFade" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleFade" data-slide-to="1"></li>
@@ -40,8 +77,55 @@ const Home=()=>{
                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
                         <span className="sr-only">Next</span>
                     </a>
+                </div> 
+                </div>
                 </div>
         </div>
         );
+}*/
+
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import { createPosts } from './actions/postaction';
+
+class Home extends Component{
+    state = {};
+    componentDidMount(){
+        this.props.createPosts();
+    }
+
+    render(){
+        console.log("Props",this.props);
+        const postLink=this.props.data.length?(
+            this.props.data.slice(0,10).map(post=>{
+                return(
+                    <div className="card m-3" key={post.id}>
+                        <div className="card-body">
+                            <Link to={"/"+post.id}>
+                                <h3 className="card-title text-center">{post.title}</h3>
+                            </Link>
+                            <p className="card-text">{post.body}</p>
+                        </div>
+                    </div>
+                );
+            })
+        ):(
+            <div className="text-center">No post yet.</div>);
+        return(
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="offset-2 col-md-8">
+                        <h4 className="text-center">Home</h4>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis explicabo quam ratione natus quod cupiditate eveniet nam qui aperiam, laboriosam, quo unde eum pariatur sit beatae. Laudantium asperiores eius sed!</p>
+                        {postLink}
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
-export default Home;
+const mapStateToProps = ({data={}})=>({
+    data:data
+});
+export default connect(mapStateToProps,{createPosts})(Home); 

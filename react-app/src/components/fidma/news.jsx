@@ -9,7 +9,7 @@ const News=()=>{
             {/* Column */}
             <div className="col-md-8 text-center">
               <h3 className="mb-3">Latest from Our Blog</h3>
-              <h6 className="subtitle font-weight-normal">You can relay on our amazing features list and also our customer services will be great experience for you without doubt</h6>
+              <h6 className="subtitle font-weight-normal">You can rely on our amazing features list and also our customer services will be a great experience for you without a doubt</h6>
             </div>
             {/* Column */}
           </div>
